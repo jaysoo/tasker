@@ -12,7 +12,7 @@ export default defineConfig({
   workers: 1,
   reporter: 'html',
   use: {
-    baseURL: 'http://localhost:3000',
+    baseURL: 'http://127.0.0.1:3001',
     trace: 'on-first-retry',
   },
 
@@ -34,8 +34,8 @@ export default defineConfig({
   webServer: {
     timeout: 120_000,
     command:
-      'pnpm --filter "@tasker/database" reset && pnpm --filter "@tasker/web" build && pnpm --filter "@tasker/web" start',
-    url: 'http://localhost:3000',
-    reuseExistingServer: !process.env.CI,
+      'pnpm exec nx run @tasker/web:next:start --port=3001 --hostname=127.0.0.1 || true',
+    url: 'http://127.0.0.1:3001/api',
+    reuseExistingServer: true,
   },
 });

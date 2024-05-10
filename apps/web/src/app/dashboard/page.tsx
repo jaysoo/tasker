@@ -30,7 +30,7 @@ export default async function Page(): Promise<JSX.Element> {
         assigneeId: userData.id,
       },
     })
-  ).map((a) => a.taskId);
+  ).map((a: any) => a.taskId);
   const tasks = await db.task.findMany({
     where: {
       id: { in: assignedTaskIds },

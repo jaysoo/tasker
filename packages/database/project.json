@@ -1,0 +1,14 @@
+{
+  "name": "@tasker/database",
+  "targets": {
+    "seed": {
+      "command": "pnpm reset",
+      "cache": true,
+      "outputs": ["{projectRoot}/tmp/dev.db"],
+      "inputs": ["{projectRoot}/schema.prisma"],
+      "options": {
+        "cwd": "packages/database"
+      }
+    }
+  }
+}
